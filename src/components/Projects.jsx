@@ -72,17 +72,16 @@ const statusColors = {
 
 export default function ModernProjectsCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [cardsToShow, setCardsToShow] = useState(3);
   const containerRef = useRef(null);
 
-  const [cardsToShow, setCardsToShow] = useState(3);
-
   useEffect(() => {
-    function handleResize() {
+    const handleResize = () => {
       const width = window.innerWidth;
       if (width < 640) setCardsToShow(1);
       else if (width < 1024) setCardsToShow(2);
       else setCardsToShow(3);
-    }
+    };
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -113,22 +112,33 @@ export default function ModernProjectsCarousel() {
           {/* Carousel container */}
           <motion.div
             className="flex gap-8"
-            style={{ width: `${(projects.length * 100) / cardsToShow}%` }}
-            animate={{ x: `-${(currentIndex * 100) / projects.length}%` }}
+            style={{
+              width: `${(projects.length * 100) / cardsToShow}%`,
+            }}
+            animate={{
+              x: `-${(currentIndex * 100) / projects.length}%`,
+            }}
             transition={{ type: "spring", stiffness: 120, damping: 20 }}
           >
             {projects.map((project, i) => (
               <motion.div
                 key={i}
                 className="bg-[#0a192f] rounded-lg border border-[#112240] shadow-xl flex-shrink-0"
-                style={{ width: `${100 / projects.length}%` }}
+                style={{
+                  width: `${100 / projects.length}%`,
+                }}
                 whileHover={{ scale: 1.05 }}
               >
-                <div className="h-48 bg-gradient-to-tr from-[#0f172a] to-[#1e293b] flex items-center justify-center text-[#22d3ee] text-6xl rounded-t-lg">
-                  {project.status === "SECURE" && "🔒"}
-                  {project.status === "PENTEST" && "🔓"}
-                  {project.status === "AUDITED" && "🔍"}
+                {/* Status Icon Section */}
+                <div className="h-48 bg-gradient-to-tr from-[#0f172a] to-[#1e293b] flex items-center justify-center text-6xl rounded-t-lg">
+                  <span>
+                    {project.status === "SECURE" && "🔒"}
+                    {project.status === "PENTEST" && "🔓"}
+                    {project.status === "AUDITED" && "🔍"}
+                  </span>
                 </div>
+
+                {/* Card Content */}
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-4">
                     <h3 className="text-xl font-bold text-[#ccd6f6]">{project.title}</h3>
@@ -138,7 +148,7 @@ export default function ModernProjectsCarousel() {
                       {project.status}
                     </span>
                   </div>
-                  <p className="text-[#8892b0] mb-6 min-h-[72px]">{project.description}</p>
+                  <p className="text-[#8892b0] mb-6 min-h-[72px] text-sm">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.tags.map((tag, idx) => (
                       <span

@@ -14,19 +14,21 @@ const Skills = () => {
   return (
     <section id="skills" className="py-20 bg-[#0a192f] text-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-gray-200 mb-4 font-mono">
             <span className="text-cyan-500">$</span> skills
           </h2>
-          <div className="w-20 h-1 bg-cyan-500 mx-auto"></div>
+          <div className="w-20 h-1 bg-cyan-500 mx-auto" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        {/* Skills Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
           {skills.map((skill, index) => (
-            <div key={index}>
-              <div className="flex justify-between mb-1">
-                <span className="text-gray-300">{skill.name}</span>
-                <span className="text-cyan-400 font-mono">{skill.level}%</span>
+            <div key={index} aria-label={`${skill.name} skill level`}>
+              <div className="flex justify-between items-center mb-1">
+                <span className="text-gray-300 text-sm sm:text-base">{skill.name}</span>
+                <span className="text-cyan-400 font-mono text-sm sm:text-base">{skill.level}%</span>
               </div>
               <div className="w-full bg-gray-700 rounded-full h-3">
                 <motion.div
@@ -34,7 +36,7 @@ const Skills = () => {
                   whileInView={{ width: `${skill.level}%` }}
                   transition={{ duration: 1.2, delay: index * 0.2 }}
                   className="bg-cyan-500 h-3 rounded-full"
-                ></motion.div>
+                />
               </div>
             </div>
           ))}
