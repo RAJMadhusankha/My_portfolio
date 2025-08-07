@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   FiGithub,
   FiExternalLink,
@@ -7,7 +7,6 @@ import {
   FiChevronRight,
 } from "react-icons/fi";
 
-// Sample projects data (replace or import as needed)
 const projects = [
   {
     title: "Network Vulnerability Scanner",
@@ -75,7 +74,6 @@ export default function ModernProjectsCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const containerRef = useRef(null);
 
-  // Show 1 card on small screens, 2 medium, 3 large
   const [cardsToShow, setCardsToShow] = useState(3);
 
   useEffect(() => {
@@ -108,7 +106,7 @@ export default function ModernProjectsCarousel() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-[#ccd6f6] mb-12 text-center font-mono">
-          <span className="text-[#64ffda]">cd</span> /projects/
+          <span className="text-[#22d3ee]">cd</span> /projects/
         </h2>
 
         <div className="relative">
@@ -126,7 +124,7 @@ export default function ModernProjectsCarousel() {
                 style={{ width: `${100 / projects.length}%` }}
                 whileHover={{ scale: 1.05 }}
               >
-                <div className="h-48 bg-gradient-to-tr from-[#0f172a] to-[#1e293b] flex items-center justify-center text-[#64ffda] text-6xl rounded-t-lg">
+                <div className="h-48 bg-gradient-to-tr from-[#0f172a] to-[#1e293b] flex items-center justify-center text-[#22d3ee] text-6xl rounded-t-lg">
                   {project.status === "SECURE" && "🔒"}
                   {project.status === "PENTEST" && "🔓"}
                   {project.status === "AUDITED" && "🔍"}
@@ -156,7 +154,7 @@ export default function ModernProjectsCarousel() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#64ffda] hover:underline font-mono text-sm flex items-center"
+                      className="text-[#22d3ee] hover:underline font-mono text-sm flex items-center"
                     >
                       <FiGithub className="mr-2" /> source
                     </a>
@@ -178,14 +176,14 @@ export default function ModernProjectsCarousel() {
           <button
             onClick={prev}
             aria-label="Previous projects"
-            className="absolute top-1/2 -translate-y-1/2 left-0 z-10 bg-[#0a192f] p-3 rounded-full shadow-md text-[#64ffda] hover:bg-[#64ffda] hover:text-[#0a192f] transition"
+            className="absolute top-1/2 -translate-y-1/2 left-0 z-10 bg-[#0a192f] p-3 rounded-full shadow-md text-[#22d3ee] hover:bg-[#22d3ee] hover:text-[#0a192f] transition"
           >
             <FiChevronLeft size={24} />
           </button>
           <button
             onClick={next}
             aria-label="Next projects"
-            className="absolute top-1/2 -translate-y-1/2 right-0 z-10 bg-[#0a192f] p-3 rounded-full shadow-md text-[#64ffda] hover:bg-[#64ffda] hover:text-[#0a192f] transition"
+            className="absolute top-1/2 -translate-y-1/2 right-0 z-10 bg-[#0a192f] p-3 rounded-full shadow-md text-[#22d3ee] hover:bg-[#22d3ee] hover:text-[#0a192f] transition"
           >
             <FiChevronRight size={24} />
           </button>
