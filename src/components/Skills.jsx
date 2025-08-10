@@ -1,14 +1,14 @@
 import { motion } from 'framer-motion';
 
 const skills = [
-  { name: 'Networking (TCP/IP, OSI, Subnetting)', level: 90 },
+ { name: 'Networking (TCP/IP, OSI, Subnetting)', level: 90 },
   { name: 'Firewalls & VPN (IPSec, SSL, ACLs)', level: 85 },
   { name: 'Penetration Testing (Metasploit, Burp Suite)', level: 80 },
   { name: 'Linux & Windows Security', level: 75 },
   { name: 'SIEM & Monitoring (Zabbix, Splunk)', level: 70 },
   { name: 'Cybersecurity Frameworks (NIST, ISO 27001)', level: 65 },
   { name: 'Python for Security Automation', level: 60 },
-];
+]
 
 const Skills = () => {
   return (
