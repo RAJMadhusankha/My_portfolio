@@ -37,7 +37,7 @@ const projects = [
     tags: ["Secure OSPFv2", "NTP Server", "VLAN segmentation"],
     status: "SECURE",
     github: "https://github.com/RAJMadhusankha/Secure-Network-Project",
-     image: "/public/secure.png",
+    image: "/public/secure.png",
   },
   
 ];

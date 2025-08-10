@@ -34,7 +34,7 @@ export default function Hero() {
         transition={{ delay: 0.3, duration: 0.6 }}
         className="text-base sm:text-xl text-gray-400 mb-8 max-w-xl"
       >
-        Security Analyst | Cyber Defense Enthusiast
+        Network & Security | Undergraduate
       </motion.p>
 
       {/* Buttons */}
